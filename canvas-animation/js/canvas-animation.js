@@ -18,8 +18,8 @@ const PADDLE_HEIGHT = 20;
 //balls
 let ballx = 100;
 let bally = 100;
-let ballxdir = 2;
-let ballydir = 1.5;
+let ballxdir = 1.5;
+let ballydir = 2;
 const BALL_RADIUS = 15;
 
 
@@ -64,6 +64,12 @@ function ballcollision() {
     }
     if ((ballx > 500 - BALL_RADIUS) || (ballx < 0 + BALL_RADIUS)) {
         ballxdir = ballxdir * -1;
+    }
+
+    //check if paddle is hit
+    if (ballx + BALL_RADIUS >= playerx && ballx - BALL_RADIUS <= playerx + PADDLE_WIDTH && bally + BALL_RADIUS >= playery && bally - BALL_RADIUS <= playery + PADDLE_HEIGHT) {
+        ballydir = ballydir * -1.01;
+
     }
 }
 
