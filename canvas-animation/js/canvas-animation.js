@@ -13,12 +13,14 @@ let playery = 250;
 let playerspeed = 2;
 let playerxdir = 0;
 let playerydir = 0;
+const PADDLE_WIDTH = 100;
+const PADDLE_HEIGHT = 20;
 //balls
 let ballx = 100;
 let bally = 100;
 let ballxdir = 2;
 let ballydir = 1.5;
-let ballradius = 15;
+const BALL_RADIUS = 15;
 
 
 function drawPlayer() {
@@ -46,7 +48,7 @@ function movePlayer() {
 function drawBall() {
     // draw a filled circle at ballx and bally
     ctx.beginPath();
-    ctx.arc(ballx, bally, ballradius, 0, 2 * Math.PI);
+    ctx.arc(ballx, bally, BALL_RADIUS, 0, 2 * Math.PI);
     ctx.fill();
 }
 
@@ -57,10 +59,10 @@ function moveBall() {
 
 function ballcollision() {
     //vert walls
-    if ((bally > 500 - ballradius) || (bally < 0 + ballradius)) {
+    if ((bally > 500 - BALL_RADIUS) || (bally < 0 + BALL_RADIUS)) {
         ballydir = ballydir * -1;
     }
-    if ((ballx > 500 - ballradius) || (ballx < 0 + ballradius)) {
+    if ((ballx > 500 - BALL_RADIUS) || (ballx < 0 + BALL_RADIUS)) {
         ballxdir = ballxdir * -1;
     }
 }
